@@ -1,4 +1,6 @@
 var express = require('express');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 var app = express();
 
@@ -13,13 +15,20 @@ app.all('/*', function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+mongoose.connect('mongodb://localhost:27017/food');
 
-var ingredients = [{"id":1,"text":"ham"}, {"id":2,"text":"ham"},{"id":3,"text":"potatoes"}];
+//var ingredients = [{"id":1,"text":"ham"}, {"id":2,"text":"ham"},{"id":3,"text":"potatoes"}];
+var usersSchema = new Schema({
+  id: Number,
+  ingredient: String
+});
 
+mongoose.model('ingredients', usersSchema);
 
 app.get('/ingredients', function(req, res) {
-    console.log("GET From Here");
+  mongoose.model('ingredients').find({}, function(err, ingredients) {
     res.send(ingredients);
+  });
 });
 
 app.post('/ingredients', function(req, res) {
@@ -29,4 +38,4 @@ app.post('/ingredients', function(req, res) {
     res.status(200).send("Successfully posted ingredient");
 });
 
-app.listen(6060);
+app.listen(3000);
