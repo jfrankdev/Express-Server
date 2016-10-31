@@ -15,11 +15,15 @@ app.all('/*', function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-var ingredients = [{"id":3,"text":"potatoes"}];
+var mcdYes = [{"id":"Burger King","text":"5"}];
+var mcdNo = [{"id":3,"text":"8"}];
 
+app.get('/mcdYes', function(req, res) {
+    res.send(mcdYes);
+});
 
-app.get('/ingredients', function(req, res) {
-    res.send(ingredients);
+app.get('/mcdNo', function(req, res) {
+    res.send(mcdNo);
 });
 
 app.post('/ingredients', function(req, res) {
