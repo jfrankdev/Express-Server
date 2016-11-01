@@ -15,8 +15,50 @@ app.all('/*', function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-var mcdYes = [{"id":"Burger King","text":"5"}];
+var mcdYes = [{"id":"McDonalds","text":"5"}];
 var mcdNo = [{"id":3,"text":"8"}];
+var bkYes = [{"id":"Burger King","text":"2"}];
+var bkNo = [{"id":3,"text":"6"}];
+var domYes = [{"id":"Dominos","text":"7"}];
+var domNo = [{"id":3,"text":"3"}];
+var phutYes = [{"id":"Pizza Hut","text":"3"}];
+var phutNo = [{"id":3,"text":"7"}];
+var arbYes = [{"id":"Arbys","text":"3"}];
+var arbNo = [{"id":3,"text":"7"}];
+var wendYes = [{"id":"wendys","text":"3"}];
+var wendNo = [{"id":3,"text":"7"}];
+
+app.get('/wendYes', function(req, res) {
+    res.send(wendYes);
+});
+
+app.get('/wendNo', function(req, res) {
+    res.send(wendNo);
+});
+
+app.get('/arbYes', function(req, res) {
+    res.send(arbYes);
+});
+
+app.get('/arbNo', function(req, res) {
+    res.send(arbNo);
+});
+
+app.get('/phutYes', function(req, res) {
+    res.send(phutYes);
+});
+
+app.get('/phutNo', function(req, res) {
+    res.send(phutNo);
+});
+
+app.get('/domYes', function(req, res) {
+    res.send(domYes);
+});
+
+app.get('/domNo', function(req, res) {
+    res.send(domNo);
+});
 
 app.get('/mcdYes', function(req, res) {
     res.send(mcdYes);
@@ -24,6 +66,14 @@ app.get('/mcdYes', function(req, res) {
 
 app.get('/mcdNo', function(req, res) {
     res.send(mcdNo);
+});
+
+app.get('/bkYes', function(req, res) {
+    res.send(bkYes);
+});
+
+app.get('/bkNo', function(req, res) {
+    res.send(bkNo);
 });
 
 app.post('/ingredients', function(req, res) {
