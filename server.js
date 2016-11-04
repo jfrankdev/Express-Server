@@ -78,20 +78,8 @@ app.get('/bkNo', function(req, res) {
 
 var ingredients = [
     {
-        "id": "234kjw",
-        "text": "Eggs"
-    },
-    {
-        "id": "as82w",
-        "text": "Milk"
-    },
-    {
-        "id": "234sk1",
-        "text": "Bacon"
-    },
-    {
-        "id": "ppo3j3",
-        "text": "Frog Legs"
+        "id": "Burger King",
+        "vote": 0
     }
 ];
 
@@ -101,9 +89,11 @@ app.get('/ingredients', function(req, res) {
 });
 
 app.post('/ingredients', function(req, res) {
-    var ingredient = req.body;
-    console.log(req.body);
-    ingredients.push(ingredient);
+
+    //var ingredient = req.body;
+    //ingredients[0] = ingredient;
+    ingredients[0].vote++;
+
     res.status(200).send("Successfully posted ingredient");
 });
 
