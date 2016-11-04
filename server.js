@@ -79,7 +79,7 @@ app.get('/bkNo', function(req, res) {
 var ingredients = [
     {
         "id": "Burger King",
-        "vote": 0
+        "vote": -1
     }
 ];
 
