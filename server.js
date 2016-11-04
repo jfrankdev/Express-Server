@@ -90,8 +90,6 @@ app.get('/ingredients', function(req, res) {
 
 app.post('/ingredients', function(req, res) {
 
-    //var ingredient = req.body;
-    //ingredients[0] = ingredient;
     ingredients[0].vote++;
 
     res.status(200).send("Successfully posted ingredient");
