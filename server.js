@@ -23,7 +23,7 @@ var mcdYes = [{"id": "Mcdonalds","vote": -1}];
 var domYes = [{"id": "Dominos","vote": -1}];
 var phutYes = [{"id": "Pizza Hut","vote": -1}];
 var arbyYes = [{"id": "Arbys","vote": -1}];
-var WendYes = [{"id": "Wendys","vote": -1}];
+var wendYes = [{"id": "Wendys","vote": -1}];
 
 
 
@@ -43,8 +43,8 @@ app.get('/phutYes', function(req, res) {
 app.get('/arbyYes', function(req, res) {
     res.send(arbyYes);
 });
-app.get('/WendYes', function(req, res) {
-    res.send(WendYes);
+app.get('/wendYes', function(req, res) {
+    res.send(wendYes);
 });
 
 
@@ -70,8 +70,8 @@ app.post('/arbyYes', function(req, res) {
     arbyYes[0].vote++;
     res.status(200).send("Successfully posted ingredient");
 });
-app.post('/WendYes', function(req, res) {
-    WendYes[0].vote++;
+app.post('/wendYes', function(req, res) {
+    wendYes[0].vote++;
     res.status(200).send("Successfully posted ingredient");
 });
 
