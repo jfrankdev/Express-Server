@@ -24,6 +24,13 @@ var domYes = [{"id": "Dominos","vote": -1}];
 var phutYes = [{"id": "Pizza Hut","vote": -1}];
 var arbyYes = [{"id": "Arbys","vote": -1}];
 var wendYes = [{"id": "Wendys","vote": -1}];
+var chicYes = [{"id": "Chic Fil A","vote": -1}];
+var kfcYes = [{"id": "Kfc","vote": -1}];
+var subYes = [{"id": "Subway","vote": -1}];
+var jimYes = [{"id": "Jimmy John's","vote": -1}];
+
+
+
 
 
 
@@ -45,6 +52,18 @@ app.get('/arbyYes', function(req, res) {
 });
 app.get('/wendYes', function(req, res) {
     res.send(wendYes);
+});
+app.get('/chicYes', function(req, res) {
+    res.send(chicYes);
+});
+app.get('/kfcYes', function(req, res) {
+    res.send(kfcYes);
+});
+app.get('/subYes', function(req, res) {
+    res.send(subYes);
+});
+app.get('/jimYes', function(req, res) {
+    res.send(jimYes);
 });
 
 
@@ -74,5 +93,24 @@ app.post('/wendYes', function(req, res) {
     wendYes[0].vote++;
     res.status(200).send("Successfully posted ingredient");
 });
+app.post('/chicYes', function(req, res) {
+    chicYes[0].vote++;
+    res.status(200).send("Successfully posted ingredient");
+});
+app.post('/kfcYes', function(req, res) {
+    kfcYes[0].vote++;
+    res.status(200).send("Successfully posted ingredient");
+});
+app.post('/subYes', function(req, res) {
+    subYes[0].vote++;
+    res.status(200).send("Successfully posted ingredient");
+});
+app.post('/jimYes', function(req, res) {
+    jimYes[0].vote++;
+    res.status(200).send("Successfully posted ingredient");
+});
+
+
+
 
 app.listen(3000);
