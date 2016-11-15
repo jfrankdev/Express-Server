@@ -4,6 +4,10 @@ var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 var app = express();
 
+
+mongoose.connect('mongodb://localhost:27017/mongo');
+
+
 //Allow all requests from all domains & localhost
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -18,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 
-var bkYes = [{"id": "Burger King","vote": -1}];
+//var bkYes = [{"id": "Burger King","vote": -1}];
 var mcdYes = [{"id": "Mcdonalds","vote": -1}];
 var domYes = [{"id": "Dominos","vote": -1}];
 var phutYes = [{"id": "Pizza Hut","vote": -1}];
@@ -35,9 +39,9 @@ var jimYes = [{"id": "Jimmy John's","vote": -1}];
 
 
 
-app.get('/bkYes', function(req, res) {
+/*app.get('/bkYes', function(req, res) {
     res.send(bkYes);
-});
+});*/
 app.get('/mcdYes', function(req, res) {
     res.send(mcdYes);
 });
@@ -111,6 +115,27 @@ app.post('/jimYes', function(req, res) {
 });
 
 
+
+//var bkYes = [{"id": "Burger King","vote": -1}];
+
+app.get('/bkYes', function(req, res) {
+    res.send(bkYes);
+});
+
+var usersSchema = new Schema({
+  name: String
+});
+
+
+mongoose.model('users', usersSchema);
+
+
+app.get('/users', function(req, res) {
+  mongoose.model('users').find({}, function(err, bkYes) {
+    res.send(bkYes);
+    //console.log(err);
+  });
+});
 
 
 app.listen(3000);
