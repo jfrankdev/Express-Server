@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 
-mongoose.connect('mongodb://localhost:27017/mongo');
+mongoose.connect('mongodb://localhost:27017/food');
 
 
 //Allow all requests from all domains & localhost
@@ -118,21 +118,23 @@ app.post('/jimYes', function(req, res) {
 
 //var bkYes = [{"id": "Burger King","vote": -1}];
 
-app.get('/bkYes', function(req, res) {
+/*app.get('/bkYes', function(req, res) {
     res.send(bkYes);
-});
+});*/
 
 var usersSchema = new Schema({
-  name: String
+//  _id: String,
+  firstName: String
+//  lastName: String
 });
 
 
-mongoose.model('users', usersSchema);
+mongoose.model('bkyes', usersSchema);
 
 
-app.get('/users', function(req, res) {
-  mongoose.model('users').find({}, function(err, bkYes) {
-    res.send(bkYes);
+app.get('/bkyes', function(req, res) {
+  mongoose.model('bkyes').find({}, function(err, bkyes) {
+    res.send(bkyes);
     //console.log(err);
   });
 });
