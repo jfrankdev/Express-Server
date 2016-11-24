@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 var app = express();
 
-
+mongoose.Promise = global.Promise; //not quite sure what this does
 mongoose.connect('mongodb://localhost:27017/food');
 
 
@@ -72,11 +72,11 @@ app.get('/jimYes', function(req, res) {
 
 
 
-
+/*
 app.post('/bkYes', function(req, res) {
     bkYes[0].vote++;
     res.status(200).send("Successfully posted ingredient");
-});
+});*/
 app.post('/mcdYes', function(req, res) {
     mcdYes[0].vote++;
     res.status(200).send("Successfully posted ingredient");
@@ -113,30 +113,76 @@ app.post('/jimYes', function(req, res) {
     jimYes[0].vote++;
     res.status(200).send("Successfully posted ingredient");
 });
+/*test
+var userDataSchema = new Schema({
+  title:  String,
+  content: String,
+  author: String
+}); //{collection: 'user-data'});
 
+var UserData = mongoose.model('UserData', userDataSchema);
 
+app.post('/bkyes', function(req, res, next) {
+  var item = {
+    title: req.body.title,
+    content: req.body.content,
+    author: req.body.author
+  };
 
+  var data = new UserData(item);
+console.log(item);
+  data.save();
+console.log(data);
+//  res.redirect('/');
+});
+*/
 //var bkYes = [{"id": "Burger King","vote": -1}];
 
-/*app.get('/bkYes', function(req, res) {
+app.get('/bkYes', function(req, res) {
     res.send(bkYes);
-});*/
+});
 
 var usersSchema = new Schema({
-//  _id: String,
-  firstName: String
+  _id: String,
+  id: String,
+  vote: Number
+//  firstName: String
 //  lastName: String
 });
 
-
-mongoose.model('bkyes', usersSchema);
+var bkyes = mongoose.model('bkyes', usersSchema);
 
 
 app.get('/bkyes', function(req, res) {
-  mongoose.model('bkyes').find({}, function(err, bkyes) {
-    res.send(bkyes);
-    //console.log(err);
-  });
+bkyes.find({}, function(err, bkyes) {
+  res.send(bkyes);
+  //console.log(err);
+});
+});
+
+app.post('/bkyes', function(req, res, next) {
+//Model.findOneAndUpdate(query, { $set: { name: 'jason borne' }})
+  bkyes
+    .findOneAndUpdate({
+      // Conditions
+      id: '5'  //must match value in db
+    }, {
+      $set:{
+      // Set which fields to update
+      id: 'hello' //the new value to update
+
+    }})
+    .exec(function(err, foundObject) {
+      if (err) {
+        // Error handler here
+        console.log(err);
+
+      }
+
+
+
+      // Do something when update successfully
+    });
 });
 
 
