@@ -20,169 +20,164 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 
-
-
-//var bkYes = [{"id": "Burger King","vote": -1}];
-var mcdYes = [{"id": "Mcdonalds","vote": -1}];
-var domYes = [{"id": "Dominos","vote": -1}];
-var phutYes = [{"id": "Pizza Hut","vote": -1}];
-var arbyYes = [{"id": "Arbys","vote": -1}];
-var wendYes = [{"id": "Wendys","vote": -1}];
-var chicYes = [{"id": "Chic Fil A","vote": -1}];
-var kfcYes = [{"id": "Kfc","vote": -1}];
-var subYes = [{"id": "Subway","vote": -1}];
-var jimYes = [{"id": "Jimmy John's","vote": -1}];
-
-
-
-
-
-
-
-/*app.get('/bkYes', function(req, res) {
-    res.send(bkYes);
-});*/
-app.get('/mcdYes', function(req, res) {
-    res.send(mcdYes);
-});
-app.get('/domYes', function(req, res) {
-    res.send(domYes);
-});
-app.get('/phutYes', function(req, res) {
-    res.send(phutYes);
-});
-app.get('/arbyYes', function(req, res) {
-    res.send(arbyYes);
-});
-app.get('/wendYes', function(req, res) {
-    res.send(wendYes);
-});
-app.get('/chicYes', function(req, res) {
-    res.send(chicYes);
-});
-app.get('/kfcYes', function(req, res) {
-    res.send(kfcYes);
-});
-app.get('/subYes', function(req, res) {
-    res.send(subYes);
-});
-app.get('/jimYes', function(req, res) {
-    res.send(jimYes);
-});
-
-
-
-/*
-app.post('/bkYes', function(req, res) {
-    bkYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});*/
-app.post('/mcdYes', function(req, res) {
-    mcdYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/domYes', function(req, res) {
-    domYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/phutYes', function(req, res) {
-    phutYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/arbyYes', function(req, res) {
-    arbyYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/wendYes', function(req, res) {
-    wendYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/chicYes', function(req, res) {
-    chicYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/kfcYes', function(req, res) {
-    kfcYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/subYes', function(req, res) {
-    subYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-app.post('/jimYes', function(req, res) {
-    jimYes[0].vote++;
-    res.status(200).send("Successfully posted ingredient");
-});
-/*test
-var userDataSchema = new Schema({
-  title:  String,
-  content: String,
-  author: String
-}); //{collection: 'user-data'});
-
-var UserData = mongoose.model('UserData', userDataSchema);
-
-app.post('/bkyes', function(req, res, next) {
-  var item = {
-    title: req.body.title,
-    content: req.body.content,
-    author: req.body.author
-  };
-
-  var data = new UserData(item);
-console.log(item);
-  data.save();
-console.log(data);
-//  res.redirect('/');
-});
-*/
-//var bkYes = [{"id": "Burger King","vote": -1}];
-
-app.get('/bkYes', function(req, res) {
-    res.send(bkYes);
-});
-
 var usersSchema = new Schema({
-  _id: String,
+//  _id: String,
   id: String,
   vote: Number
-//  firstName: String
-//  lastName: String
 });
 
 var bkyes = mongoose.model('bkyes', usersSchema);
+var mcdyes = mongoose.model('mcdyes', usersSchema);
+var domyes = mongoose.model('domyes', usersSchema);
+var phutyes = mongoose.model('phutyes', usersSchema);
+var arbyyes = mongoose.model('arbyyes', usersSchema);
+var wendyes = mongoose.model('wendyes', usersSchema);
+var chicyes = mongoose.model('chicyes', usersSchema);
+var kfcyes = mongoose.model('kfcyes', usersSchema);
+var subyes = mongoose.model('subyes', usersSchema);
+var jimyes = mongoose.model('jimyes', usersSchema);
+
 
 
 app.get('/bkyes', function(req, res) {
 bkyes.find({}, function(err, bkyes) {
   res.send(bkyes);
-  //console.log(err);
+  });
 });
+
+app.get('/mcdyes', function(req, res) {
+mcdyes.find({}, function(err, mcdyes) {
+  res.send(mcdyes);
+  });
 });
+
+app.get('/domyes', function(req, res) {
+domyes.find({}, function(err, domyes) {
+  res.send(domyes);
+  });
+});
+
+app.get('/phutyes', function(req, res) {
+phutyes.find({}, function(err, phutyes) {
+  res.send(phutyes);
+  });
+});
+
+app.get('/arbyyes', function(req, res) {
+arbyyes.find({}, function(err, arbyyes) {
+  res.send(arbyyes);
+  });
+});
+
+app.get('/wendyes', function(req, res) {
+wendyes.find({}, function(err, wendyes) {
+  res.send(wendyes);
+  });
+});
+
+app.get('/chicyes', function(req, res) {
+chicyes.find({}, function(err, chicyes) {
+  res.send(chicyes);
+  });
+});
+
+app.get('/kfcyes', function(req, res) {
+kfcyes.find({}, function(err, kfcyes) {
+  res.send(kfcyes);
+  });
+});
+
+app.get('/subyes', function(req, res) {
+subyes.find({}, function(err, subyes) {
+  res.send(subyes);
+  });
+});
+
+app.get('/jimyes', function(req, res) {
+jimyes.find({}, function(err, jimyes) {
+  res.send(jimyes);
+  });
+});
+
 
 app.post('/bkyes', function(req, res, next) {
-//Model.findOneAndUpdate(query, { $set: { name: 'jason borne' }})
-  bkyes
-    .findOneAndUpdate({
-      // Conditions
-      id: '5'  //must match value in db
-    }, {
-      $set:{
-      // Set which fields to update
-      id: 'hello' //the new value to update
-
-    }})
-    .exec(function(err, foundObject) {
+  bkyes.update({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
       if (err) {
-        // Error handler here
         console.log(err);
+    }});
+});
 
-      }
+app.post('/mcdyes', function(req, res, next) {
+  mcdyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
 
+app.post('/domyes', function(req, res, next) {
+  domyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
 
+app.post('/phutyes', function(req, res, next) {
+  phutyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
 
-      // Do something when update successfully
-    });
+app.post('/arbyyes', function(req, res, next) {
+  arbyyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
+
+app.post('/wendyes', function(req, res, next) {
+  wendyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
+
+app.post('/chicyes', function(req, res, next) {
+  chicyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
+
+app.post('/kfcyes', function(req, res, next) {
+  kfcyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
+
+app.post('/subyes', function(req, res, next) {
+  subyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
+});
+
+app.post('/jimyes', function(req, res, next) {
+  jimyes.findOneAndUpdate({$inc: { vote: 1 }})
+      .exec(function(err, foundObject) {
+      if (err) {
+        console.log(err);
+    }});
 });
 
 
