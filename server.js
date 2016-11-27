@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 var app = express();
 
-mongoose.Promise = global.Promise; //not quite sure what this does
+//mongoose.Promise = global.Promise; //not quite sure what this does
 mongoose.connect('mongodb://localhost:27017/food');
 
 
@@ -42,6 +42,7 @@ var jimyes = mongoose.model('jimyes', usersSchema);
 app.get('/bkyes', function(req, res) {
 bkyes.find({}, function(err, bkyes) {
   res.send(bkyes);
+  console.log(bkyes);
   });
 });
 
@@ -106,7 +107,10 @@ app.post('/bkyes', function(req, res, next) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
+
 
 app.post('/mcdyes', function(req, res, next) {
   mcdyes.findOneAndUpdate({$inc: { vote: 1 }})
