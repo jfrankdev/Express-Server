@@ -42,7 +42,6 @@ var jimyes = mongoose.model('jimyes', usersSchema);
 app.get('/bkyes', function(req, res) {
 bkyes.find({}, function(err, bkyes) {
   res.send(bkyes);
-  console.log(bkyes);
   });
 });
 
@@ -113,76 +112,92 @@ app.post('/bkyes', function(req, res, next) {
 
 
 app.post('/mcdyes', function(req, res, next) {
-  mcdyes.findOneAndUpdate({$inc: { vote: 1 }})
+  mcdyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/domyes', function(req, res, next) {
-  domyes.findOneAndUpdate({$inc: { vote: 1 }})
+  domyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/phutyes', function(req, res, next) {
-  phutyes.findOneAndUpdate({$inc: { vote: 1 }})
+  phutyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/arbyyes', function(req, res, next) {
-  arbyyes.findOneAndUpdate({$inc: { vote: 1 }})
+  arbyyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/wendyes', function(req, res, next) {
-  wendyes.findOneAndUpdate({$inc: { vote: 1 }})
+  wendyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/chicyes', function(req, res, next) {
-  chicyes.findOneAndUpdate({$inc: { vote: 1 }})
+  chicyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/kfcyes', function(req, res, next) {
-  kfcyes.findOneAndUpdate({$inc: { vote: 1 }})
+  kfcyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/subyes', function(req, res, next) {
-  subyes.findOneAndUpdate({$inc: { vote: 1 }})
+  subyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
+
 
 app.post('/jimyes', function(req, res, next) {
-  jimyes.findOneAndUpdate({$inc: { vote: 1 }})
+  jimyes.update({$inc: { vote: 1 }})
       .exec(function(err, foundObject) {
       if (err) {
         console.log(err);
     }});
+    res.status(200).send();
 });
-
 
 app.listen(3000);
