@@ -4,13 +4,12 @@ var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 var app = express();
 
-//mongoose.Promise = global.Promise; //not quite sure what this does
-mongoose.connect('mongodb://localhost:27017/food');
+mongoose.connect('mongodb://*****@127.0.0.1:27017/*****?authSource=******');
 
 
 //Allow all requests from all domains & localhost
 app.all('/*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://jamesfrankdev.com");
   res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "POST, GET");
   next();
@@ -21,7 +20,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 var usersSchema = new Schema({
-//  _id: String,
   id: String,
   vote: Number
 });
